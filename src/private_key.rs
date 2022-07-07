@@ -48,7 +48,7 @@ impl PrivateKey {
     /// Create a private key using an arbitrary slice of bytes. This function is not resistant to side
     /// channel attacks and may reveal your secret and private key. It is on the other hand more compact
     /// than the bip32+bip39 logic.
-    pub fn from_secret(secret: &[u8]) -> PrivateKey where PrivateKey: Sized {
+    pub fn from_secret(secret: &[u8]) -> PrivateKey where PrivateKey: Sized { 
         let sec_hash = Sha256::digest(secret);
 
         let mut i = BigUint::from_bytes_be(&sec_hash);
